@@ -7,3 +7,13 @@ if(listOfNotes.notes === undefined ){
 };
 
 testStoresAllNotesInAnArray();
+
+function testAnArrayOfNotesIsBeingReturnedWhenCallingGetNotes(){
+  var list = new ListOfNotes();
+  if (list.getNotes() !== list.notes ){
+    throw new Error('No notes has been returned');
+
+  }
+};
+
+testAnArrayOfNotesIsBeingReturnedWhenCallingGetNotes();

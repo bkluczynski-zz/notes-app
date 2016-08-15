@@ -1,4 +1,9 @@
 function ListOfNotes(){
-this.notes = [];
+  this.notes = [];
+
+};
+
+ListOfNotes.prototype.getNotes = function(){
+  return this.notes;
 
 };
