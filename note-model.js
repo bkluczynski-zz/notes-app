@@ -1,7 +1,7 @@
-function Notes (txt){
+function Note (txt){
   this.txt = txt;
 };
 
-Notes.prototype.getTxt = function () {
+Note.prototype.getTxt = function () {
   return this.txt;
 };
