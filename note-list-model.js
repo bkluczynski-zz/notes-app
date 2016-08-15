@@ -1,0 +1,4 @@
+function ListOfNotes(){
+this.notes = [];
+
+};
