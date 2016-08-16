@@ -14,7 +14,7 @@ function testAnHtmlStringIsReturnedWhenCallingGetView(){
   list.createNote('Helloe');
   var listToBeViewed = new NoteListView(list);
   var htmlString;
-  htmlString = "<ul><li><div>Hey<li><div> <li><div>Helloe<li><div></ul>"
+  htmlString = "<ul><li><div>Hey</li></div> <li><div>Helloe</li></div></ul>"
   if (listToBeViewed.getView() !== htmlString){
     throw new Error('There is no list to view');
   }
