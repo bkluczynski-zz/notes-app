@@ -20,13 +20,3 @@ function testAnHtmlStringIsReturnedWhenCallingGetView(){
   }
 };
 testAnHtmlStringIsReturnedWhenCallingGetView();
-
-// var arr = [];
-// var str;
-//
-//
-// list.notes.forEach(function(note){
-// arr.push('<li><div>'+note.getTxt()+'<li><div>')
-// });
-// str = arr.join(' ');
-// retuned = '<ul>' + str + '</ul>';
