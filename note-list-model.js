@@ -5,6 +5,7 @@ function ListOfNotes(){
 
 ListOfNotes.prototype.getNotes = function(){
   return this.notes;
+
 };
 
 ListOfNotes.prototype.createNote = function(txt) {
