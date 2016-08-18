@@ -5,7 +5,6 @@
   note.resetIds();
   }
 
-
   exports.resetAllIds = resetAllIds;
 
-})(this); 
+})(this);

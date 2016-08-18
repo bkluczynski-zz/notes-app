@@ -1,10 +1,10 @@
 (function(exports) {
 
-  id_counter = -1;
+  var id_counter = 0;
   function Note(string) {
+    this.id = id_counter++;
     this.text = string;
-    id_counter += 1;
-    this.id = id_counter;
+
   }
 
   Note.prototype.getText = function () {
@@ -16,10 +16,9 @@
   };
 
   Note.prototype.resetIds = function() {
-    id_counter = -1;
+    id_counter = 0;
 
   };
-
 
   exports.Note = Note;
 

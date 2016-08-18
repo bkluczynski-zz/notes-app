@@ -1,22 +1,27 @@
 (function(exports){
-  function NoteListView(note_list){
-    this.note_list = note_list;
+  function NoteListView(list){
+    this.note_list = list;
   }
 
   NoteListView.prototype.getNoteList = function () {
     return this.note_list
   };
 
-  NoteListView.prototype.viewNotes = function () {
-    var notes_array = this.getNoteList().getNotes()
-    var html_string = "<ul>"
-    notes_array.forEach(function(note){
-      html_string += ("<li><div>" + "<a href='#" + note.getId() + "'>" +    (note.text).substr(0,20) + "</a></div></li>")
-    });
-    html_string += "</ul>"
+  NoteListView.prototype.turnInHtml = function(){
+    var html_string = "<ul>" + this.viewNotes(this.note_list) + "</ul>";
     return html_string;
   };
 
+  NoteListView.prototype.viewNotes = function (somelist) {
+    var notes_array = [];
+    somelist.getNotes().forEach(function(note){
+      notes_array.push("<li><a href=\"#" + note.getId() + "\"><div>" + note.text.substr(0,20) + "</div></a></li>");
+      var note = new Note('som');
+      var view = new SingleNoteView(note);
+
+  });
+  return notes_array.join("");
+};
   exports.NoteListView = NoteListView;
 
 })(this);

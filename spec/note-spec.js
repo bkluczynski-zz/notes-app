@@ -14,6 +14,14 @@
   assert.isTrue(note_instance.getText() === "My favourite language is JavaScript");
 })(this);
 
+(function notesHaveIds(){
+  resetAllIds();
+  var note = new Note('Yo!');
+  console.log("notesHaveIds");
+  assert.isTrue(note.id === note.getId());
+})(this);
+
+
 (function resetsNoteId(){
   resetAllIds();
   var note = new Note("txt");
