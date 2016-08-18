@@ -1,4 +1,5 @@
 (function listHasNotes() {
+  resetAllIds();
   var note = new Note("tester");
   var note_list = new NoteList();
   note_list.pushNote(note);
@@ -7,6 +8,7 @@
 })(this);
 
 (function canGetNotes(){
+  resetAllIds();
   var note = new Note("hello");
   var note_list = new NoteList();
   note_list.pushNote(note);
@@ -15,6 +17,7 @@
 })(this);
 
 (function canCreateNote(){
+  resetAllIds();
   var note_list = new NoteList();
   note_list.createNote("Text");
   var note_element = note_list.notes[0];
