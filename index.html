@@ -5,6 +5,13 @@
     <title>title</title>
   </head>
   <body>
+    <form action="note" method="post">
+      <label>
+        Note:
+        <textarea id="text"></textarea>
+        <input type="submit" name="addNote" value="Submit">
+      </label>
+    </form>
     <div id="app">Hello</div>
     <div id="notes"></div>
     <script src="models/note-model.js"></script>
