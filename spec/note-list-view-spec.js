@@ -1,11 +1,12 @@
 (function noteListViewInstantiatedWithNoteList(){
   resetAllIds();
-  var note = new Note('hello');
+  var note = new Note("hello");
   var note_list = new NoteList();
   note_list.pushNote(note);
   var note_list_view = new NoteListView(note_list);
-  console.log("noteListViewInstantiatedWithNoteList");
-  assert.isTrue(note_list_view.viewNotes() === "<ul><li><div><a href='#0'>hello</a></div></li></ul>")
+  console.log(note_list_view.turnInHtml());
+  assert.isTrue(note_list_view.turnInHtml() === '<ul><li><a href="#0"><div>hello</div></a></li></ul>');
+
 })(this);
 
 
@@ -15,7 +16,7 @@
   var note_list = new NoteList();
   note_list.pushNote(note);
   var note_list_view = new NoteListView(note_list);
-  console.log("listShowsOnly20CharsOfNote");
-  assert.isTrue(note_list_view.viewNotes() === "<ul><li><div><a href='#0'>Please remind me tha</a></div></li></ul>");
+  console.log(note_list_view.turnInHtml());
+  assert.isTrue(note_list_view.turnInHtml() === '<ul><li><a href="#0"><div>Please remind me tha</div></a></li></ul>');
 
 })(this);

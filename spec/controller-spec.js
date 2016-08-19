@@ -4,15 +4,12 @@ resetAllIds();
   var list = new NoteList();
   list.createNote('whatever');
   var controller = new NoteController(list);
-  controller.setupNoteListView();
   var element = document.createElement('div');
   element.id = 'app';
   document.getElementById = function(){
     return element;
   }
-  controller.displayNotes();
-  console.log(document.getElementById('app').innerHTML)
-  console.log("displayNotesAsHTML()")
+
   assert.isTrue(document.getElementById('app').innerHTML == '<ul><li><div><a href="#0">whatever</a></div></li></ul>')
 
 })(this);
@@ -41,10 +38,10 @@ function testDisplaySingleNoteOnClick() {
   var view;
 
   list = new NoteList();
-  list.createNewNote('This is just a test');
-  view = new ListView(list);
+  list.createNote('This is just a test');
+  view = new NoteListView(list);
 
-  // note = new SingleNoteView(list.getAllNotes()[0]);
+  note = new SingleNoteView(list.getNotes()[0]);
 
   var appDiv = document.createElement('div', {id: 'app'});
   document.getElementById = function() {
@@ -61,14 +58,14 @@ function testDisplaySingleNoteOnClick() {
   appDiv.getElementsByTagName('a')[0].click();
 
   window.setTimeout(function(){
-    var htmlOutput = "<ul><li><a href=\"#" + list.getAllNotes()[0].noteID + "\">" + note.singleNoteHtml() + "</a></li></ul>";
+    var htmlOutput = "<ul><li><a href=\"#" + list.viewNotes()[0].noteID + "\">" + note.singleNoteHtml() + "</a></li></ul>";
     var element = appDiv;
 
     console.log("expected: ",  htmlOutput);
     console.log("got: ", element.innerHTML);
 
     assert.isTrue(htmlOutput === element.innerHTML);
-    // document.getElementById = document.__proto__.getElementById;
+    document.getElementById = document.__proto__.getElementById;
   }, 500);
 
 }
