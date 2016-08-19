@@ -1,17 +1,15 @@
-var notelist, noteview, controller;
 
+var notelist,noteview,notecontroller;
 notelist = new NoteList();
-notelist.createNote("my note number 1");
-notelist.createNote("my note number 2");
-notelist.createNote("my note number 3");
-notelist.createNote("my note number 4");
-notelist.createNote("this is a very long note");
 noteview = new NoteListView(notelist);
-controller = new NoteController(noteview);
-controller.updateHTML();
+notecontroller = new NoteController(noteview);
+notelist.createNote("first note");
+notelist.createNote("second note");
+notelist.createNote("third note");
+notelist.createNote("this is the fourth and final note, and there is a lot more to this note");
+notecontroller.updateHTML();
 
 function showNoteForCurrentPage(){
-  // debugger;
-  controller.showNote(controller.getNoteFromUrl(window.location));
-};
+  notecontroller.showNote(notecontroller.getNoteFromUrl(window.location));
+}
 window.addEventListener("hashchange", showNoteForCurrentPage);
