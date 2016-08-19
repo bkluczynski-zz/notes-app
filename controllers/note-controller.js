@@ -24,5 +24,6 @@
       .innerHTML = singleView.singleNoteHtml();
   };
 
+
   exports.NoteController = NoteController;
 })(this);
